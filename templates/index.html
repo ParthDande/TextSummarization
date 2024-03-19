@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Summarization</title>
+    <title>Text Summarization Tool</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,8 +13,8 @@
             color: #333;
         }
         .container {
-            max-width :800px;
-            margin: 0 auto;
+            max-width: 1000px;
+            margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
@@ -23,11 +23,12 @@
         }
         h1, h2 {
             color: #007bff;
+            margin-top: 0;
         }
         textarea {
-            width :100%;
+            width: 95%;
             padding: 10px;
-            margin-bottom :10px;
+            margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             resize: vertical;
@@ -44,20 +45,26 @@
             background-color: #0056b3;
         }
         .summary {
-            margin-top :20 px;
+            margin-top: 20px;
+        }
+        p {
+            margin-top: 0;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Text Summarization</h1>
+        <h1>Text Summarization Tool</h1>
         <form action="/summarize" method="post">
-            <textarea name="article" rows="10" placeholder="Enter an article..."></textarea><br>
+            <textarea name="article" rows="10" placeholder="Provide text to summarize"></textarea><br>
             <input type="submit" value="Summarize">
         </form>
         {% if article %}
-            <h2>Original Article:</h2>
-            <p>{{ article }}</p>
+            <div class="summary">
+                <h2>Original Article:</h2>
+                <p>{{ article }}</p>
+            </div>
         {% endif %}
         {% if summary %}
             <div class="summary">
