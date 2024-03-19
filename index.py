@@ -1,0 +1,1 @@
+from TextSummarization.wsgi import app
