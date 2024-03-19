@@ -14,5 +14,3 @@ def summarize():
     article = request.form['article']
     summary_text = summarizer(article, max_length=500, min_length=500, do_sample=False)[0]['summary_text']
     return render_template('index.html', article=article, summary=summary_text)
-if __name__ == '__main__':
-    app.run(debug=True)
