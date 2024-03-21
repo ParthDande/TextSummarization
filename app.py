@@ -12,5 +12,8 @@ def home():
 @app.route('/summarize', methods=['POST'])
 def summarize():
     article = request.form['article']
-    summary_text = summarizer(article, max_length=500, min_length=500, do_sample=False)[0]['summary_text']
+    print(f'The words in the article are {len(article)}')
+    max_length = int(len(article)/7)
+    min_length = int(len(article)/10)
+    summary_text = summarizer(article, max_length=max_length,min_length=min_length,truncation=True, do_sample=False)[0]['summary_text']
     return render_template('index.html', article=article, summary=summary_text)
